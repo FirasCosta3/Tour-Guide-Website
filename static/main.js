@@ -176,6 +176,7 @@ create_account_cancel.addEventListener("click", closeLogin)
 const create_error = document.getElementById("create-error")
 const create_details = document.getElementById("create-details")
 let is_complete = true
+const allValues = []
 create_details.addEventListener("submit", (e) => {
     create_inputs.forEach((inputs) => {
         if (inputs.value === ""){
@@ -184,9 +185,30 @@ create_details.addEventListener("submit", (e) => {
         }
     })
     if (is_complete){
-        console.log("")
+        create_inputs.forEach((input) => {
+            e.preventDefault()
+            allValues.push(input.value)
+        })
+        sendAccountDetails()
     }
     else {
         create_error.classList.add("active")
     }
+    allValues.length = 0
 })
+
+async function sendAccountDetails() {
+    const response = await fetch("/createAccount", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            details: allValues
+            })
+    })
+    const data = await response.json()
+    if (data.status === 200){
+        location.reload()
+    }
+}

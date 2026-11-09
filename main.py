@@ -1,7 +1,7 @@
 from flask import Flask, redirect, render_template, session, request, jsonify
 import os
 from dotenv import load_dotenv
-from database import db_sync, check_login
+from database import db_sync, check_login, create_account
 import werkzeug.security
 from werkzeug.security import check_password_hash
 
@@ -99,6 +99,13 @@ def contact():
 def hash_pass(user_password):
     new_pass = werkzeug.security.generate_password_hash(user_password)
     return new_pass
+
+@app.route("/createAccount", methods = ["POST"])
+def account_details():
+    data = request.get_json()
+    details = data["details"]
+    if create_account(details):
+        return jsonify({"status": 200})
 
 if __name__ == "__main__":
     app.run(debug = True)

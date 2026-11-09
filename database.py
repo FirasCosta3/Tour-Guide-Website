@@ -23,4 +23,11 @@ def check_login(email, cursor, connection):
         return False
     else:
         return result[0]
-    
+
+def create_account(details):
+    connection = psycopg.connect(os.getenv("postgr_login"))
+    first, last, email, password = details
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO users (email, password, firstName, lastName) VALUES (%s, %s, %s, %s)", (first, last, email, password))
+    connection.commit()
+    return True
