@@ -20,6 +20,11 @@ const create_form = document.getElementById("create-form")
 const create_account_cancel = document.getElementById("create-account-button")
 const log_back = document.getElementById("log-back-in")
 const c_toggle_password = document.getElementById("c-toggle-password")
+const c_first_name = document.getElementById("c-first-name")
+const c_last_name = document.getElementById("c-last-name")
+const c_email = document.getElementById("c-email-form")
+const c_password = document.getElementById("c-password-form")
+const create_inputs = [c_first_name, c_last_name, c_email, c_password]
 // account creation user forms
 const first_n = document.getElementById("c-first-name")
 const last_n = document.getElementById("c-last-name")
@@ -106,8 +111,10 @@ function sendDetails(email, password) {
 
 
 function saveAccount(first_name, last_name, user_email, user_password){
-
-}
+    if (!first_name || !last_name || !user_email || !user_password){
+        console.log("dajsbndsa")
+    }
+}   
 
 function getLogin() {
     const email = email_submission.value
@@ -165,3 +172,21 @@ c_toggle_password.addEventListener("click", CreatepasswordEye)
 overlay.addEventListener("click", closeLogin)
 cancel.addEventListener("click", closeLogin)
 create_account_cancel.addEventListener("click", closeLogin)
+
+const create_error = document.getElementById("create-error")
+const create_details = document.getElementById("create-details")
+let is_complete = true
+create_details.addEventListener("submit", (e) => {
+    create_inputs.forEach((inputs) => {
+        if (inputs.value === ""){
+            is_complete = false
+            e.preventDefault()
+        }
+    })
+    if (is_complete){
+        console.log("")
+    }
+    else {
+        create_error.classList.add("active")
+    }
+})

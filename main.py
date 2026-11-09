@@ -26,14 +26,17 @@ app.secret_key = os.getenv("flask_secret_key")
 default_lang = "EN"
 
 @app.errorhandler(404)
-def not_found_error():
-    return render_template('not-found.html')
+def not_found_error(error):
+    return render_template('not-found.html'), 404
+
+@app.route("/favicon.ico")
+def favicon():
+    return "", 204
 
 @app.route("/", methods=["POST"])
 def web_login():
     data = request.get_json()  # got the json from our JS POST request
     email = data.get("email")
-    print(email)
     if email == "":
         return jsonify({"success": "None"})
     else:

@@ -47,7 +47,6 @@
     {% endblock %}
 </main>
 <div id="overlay" ></div>
-<!-- LOGIN PAGE -->
 <div id="login-form" class="form-template">
         <button type="button" class="cancel-button">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -63,13 +62,13 @@
             <div id="login-ediv">
                 <label class="main-font" id="email-label">Email</label>
                 <form class="email-forms">
-                     <input class ="login-shape" type="text" id="email-form" placeholder="Enter a valid email ">
+                     <input autocomplete="off" class ="login-shape" type="text" id="email-form" placeholder="Enter a valid email ">
                 </form>
             </div>
             <div id="password-div">
                 <label class="main-font" id="password-label">Password</label>
                 <form class="password-forms" >
-                    <input class ="login-shape" type="password" id="password-form" placeholder="Enter your password" size="14">
+                    <input autocomplete="off" class ="login-shape" type="password" id="password-form" placeholder="Enter your password" size="14">
                     <button type="button" id="toggle-password">
                         <svg class="eye-icon" id="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -97,7 +96,6 @@
             </div>
         </div>
 </div>
-<!-- CREATE ACCOUNT PAGE  -->
 <div class ="form-template" id="create-form">
     <button type="button" id="create-account-button" class="cancel-button">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -113,48 +111,45 @@
         <div class="names-create">
             <div class="name-div" id="left-name">
                 <label class="main-font" id="firstname-id">First name</label>
-                <form id="first-name">
-                    <input class="name-input names-shape" id="c-first-name" placeholder="Enter first name">
-                </form>
+        <form id="create-details" novalidate>
+                <input name="first-name" autocomplete="off" class="name-input names-shape" id="c-first-name" placeholder="Enter first name" required>
             </div>
             <div class="name-div" id="right-name">
                 <label class="main-font" id="lastname-label">Last name</label>
-                <form id="last-name">
-                    <input class="name-input names-shape" id="c-last-name" placeholder="Enter last name">
-                </form>
+                <input name="last-name" autocomplete="off" class="name-input names-shape" id="c-last-name" placeholder="Enter last name" required>
             </div>
         </div>
         <div id="c-email-div">
             <label class="main-font" id="email-c-label">Email</label>
-            <form id="c-email-forms">
-                 <input class ="login-shape" type="text" id="c-email-form" placeholder="Enter a valid email ">
-            </form>
+            <input name="email-input" autocomplete="off" class ="login-shape" type="text" id="c-email-form" placeholder="Enter a valid email " required>
         </div>
         <div id="c-pass-div">
             <label class="main-font" id="password-c-label">Password</label>
-            <form id="c-creat-pass">
-                <input class ="login-shape" type="password" id="c-password-form" placeholder="Enter a password" size="14">
-                <button type="button" id="c-toggle-password">
-                    <svg class="eye-icon" id="c-eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                        <circle cx="12" cy="12" r="3" />
-                    </svg>
-                    <svg class="eye-icon" id="c-eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="3" x2="21" y2="21"></line>
-                        <path d="M2 12C2 12 6 5 12 5C18 5 22 12 22 12C22 12 18 19 12 19C6 19 2 12 2 12Z"></path>
-                        <circle cx="12" cy="12" r="3.5"></circle>
-                    </svg>
-                </button>
-            </form>
+            <input name="password-input" autocomplete="off" class ="login-shape" type="password" id="c-password-form" placeholder="Enter a password" size="14" required>
+            <button type="button" id="c-toggle-password">
+                <svg class="eye-icon" id="c-eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg class="eye-icon" id="c-eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="3" x2="21" y2="21"></line>
+                    <path d="M2 12C2 12 6 5 12 5C18 5 22 12 22 12C22 12 18 19 12 19C6 19 2 12 2 12Z"></path>
+                    <circle cx="12" cy="12" r="3.5"></circle>
+                </svg>
+            </button>
         </div>
     </div>
     <div id="log-back-div">
-         <button class="login-button shape-sizes" id="create-account-logp">
-            Create Account
-        </button>
+        <div id="create-account-div">
+            <p class="main-font" id="create-error">Make sure no fields are empty</p>
+            <button class="login-button shape-sizes" id="create-account-logp">
+                Create Account
+            </button>
+        </div>
         <p class="main-font" id="log-back-text">Changed your mind?</p>
         <button class="main-font login-page-button shape-sizes" type="button" id="log-back-in">Log back in</button>
     </div>
+    </form>
 </div>
 <footer>
     <p class="main-font my-name" style="font-size: 16px;"> © 2026 - By Firas Costa</p>
@@ -165,5 +160,5 @@
     </a>
 </footer>
 </body>
-<script ssrc ="{{ url_for ('static', filename = 'main.js') }}" defer></script>
+<script src ="{{ url_for ('static', filename = 'main.js') }}" defer></script>
 </html>

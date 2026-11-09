@@ -4,7 +4,6 @@
 .tour-card,
 .lang-dropdown,
 #create-account-logp,
-#toggle-password,
 #create-account,
 #create-form,
 #login-button{
@@ -128,7 +127,8 @@ html, body{
     background: transparent;
     margin-right: 30px;
     border: black solid 1.5px;
-    border-radius: 9px
+    border-radius: 9px;
+    padding: 6px;
 }
 
 .tour-grid{
@@ -547,10 +547,6 @@ footer{
     width: 32px;
 }
 
-#toggle-password:hover{
-    transform: translateY(-50%) perspective(1px) scale(1.04)
-}
-
 #c-toggle-password{
     position: absolute;
     display: flex;
@@ -566,10 +562,6 @@ footer{
     height: 32px;
     cursor: pointer;
     width: 32px;
-}
-
-#c-toggle-password:hover{
-    transform: translateY(-50%) perspective(1px) scale(1.04)
 }
 
 .eye-icon{
@@ -732,7 +724,7 @@ footer{
 
 .name-input{
     text-align: center;
-    font-size: 15px;
+    font-size: 19px;
 }
 
 #lastname-label{
@@ -911,9 +903,9 @@ footer{
 }
 
 #create-account-logp{
-    margin: 30px auto 0;
     align-items: center;
     max-width: 80%;
+    margin: 0;
 }
 
 .login-button{
@@ -943,4 +935,23 @@ footer{
 
 #log-back-text{
     margin: 20px auto;
+}
+
+#create-error{
+    visibility: hidden;
+    color: red;
+    margin: auto;
+    padding: 0;
+}
+
+#create-error.active{
+    visibility: visible;
+}
+
+#create-account-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
