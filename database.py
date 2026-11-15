@@ -17,6 +17,7 @@ def db_sync():
     return cursor, connection
 
 def check_login(email, cursor, connection):
+    print(email)
     cursor.execute("""SELECT password FROM users WHERE email = %s""",(email,))
     result = cursor.fetchone()
     if result == None: # if there's no password for the email used
@@ -26,8 +27,9 @@ def check_login(email, cursor, connection):
 
 def create_account(details):
     connection = psycopg.connect(os.getenv("postgr_login"))
+    print(details)
     first, last, email, password = details
     cursor = connection.cursor()
-    cursor.execute("INSERT INTO users (email, password, firstName, lastName) VALUES (%s, %s, %s, %s)", (first, last, email, password))
+    cursor.execute("INSERT INTO users (email, password, firstName, lastName) VALUES (%s, %s, %s, %s)", (email, password, first, last))
     connection.commit()
     return True

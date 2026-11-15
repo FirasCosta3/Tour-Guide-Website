@@ -72,7 +72,7 @@ function CreatepasswordEye() {
 }
 
 function sendDetails(email, password) {
-    fetch("/", {
+    fetch("/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"   // assigning JSON file

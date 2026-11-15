@@ -33,7 +33,7 @@ def not_found_error(error):
 def favicon():
     return "", 204
 
-@app.route("/", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def web_login():
     data = request.get_json()  # got the json from our JS POST request
     email = data.get("email")
@@ -45,8 +45,10 @@ def web_login():
         user_password = data.get("password")
         cursor, connection = db_sync()
         password = check_login(email, cursor, connection)
+        print(password)
         if password:
             result = check_password_hash(password, user_password)
+            print(result)
             return jsonify({"success": result})
         else:
             return jsonify({"success": False})
