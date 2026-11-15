@@ -84,6 +84,7 @@ function sendDetails(email, password) {
     .then(response => response.json()) //
     .then(data =>{ // data is now the response json sent by Python
         if (data.success === true){
+            clearLogin();
             login_form.classList.remove("active");
             overlay.classList.remove("active");
             empty_error.classList.remove("active");
@@ -109,6 +110,17 @@ function sendDetails(email, password) {
     })
 }
 
+const clearLogin = () => {
+    email_submission.value = ""
+    password_submission.value = ""
+}
+
+const clearCreation = () => {
+    first_n.value = ""
+    last_n.value = ""
+    created_e.value = ""
+    created_pass.value = ""
+}
 
 function saveAccount(first_name, last_name, user_email, user_password){
     if (!first_name || !last_name || !user_email || !user_password){
@@ -144,6 +156,7 @@ function openLogin(){
     create_form.classList.remove("no-trans")
     login_form.classList.remove("hide")
     login_form.classList.add("active")
+    clearCreation();
 }
 
 function enterKey(event){
@@ -157,6 +170,7 @@ function createAccount(){
     create_form.classList.add("switch")
     login_form.classList.remove("active")
     login_form.classList.add("hide")
+    clearLogin();
 }
 
 // calling the functions

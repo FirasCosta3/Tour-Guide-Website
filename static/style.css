@@ -460,10 +460,11 @@ footer{
 }
 
 #password-form{
-    width: 100%;
+    flex: 1;
+    width: 0;
+    min-width: 0;
     text-align: center;
-    margin: 0 auto;
-    padding-right: 45px;
+    margin: 0;
 }
 
 #password-div{
@@ -507,9 +508,10 @@ footer{
 }
 
 #c-password-form{
+    flex: 1;
+    width: 0;
+    min-width: 0;
     text-align: center;
-    width: 100%;
-
 }
 
 #c-email-forms{
@@ -530,40 +532,53 @@ footer{
     margin: 0 auto;
 }
 
-#toggle-password{
-    position: absolute;
+.password-input-row{
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 11px;
-    border-radius: 40%;
-    border: black solid 1px;
-    background: #f0eded;
-    transition: 0.2s ease;
-    height: 32px;
-    cursor: pointer;
-    width: 32px;
+    width: 100%;
+    height: 42px;
+    border: black solid 1.5px;
+    border-radius: 7px;
+    background: white;
 }
 
+#password-form,
+#c-password-form{
+    box-sizing: border-box;
+    height: 100%;
+    max-height: none;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+#password-form:focus,
+#c-password-form:focus{
+    outline: none;
+}
+
+#toggle-password,
 #c-toggle-password{
-    position: absolute;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    justify-content: space-between;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 11px;
-    border-radius: 40%;
-    border: black solid 1px;
-    background: #f0eded;
-    transition: 0.2s ease;
+    margin-right: 10px;
+    justify-content: center;
     height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
     cursor: pointer;
     width: 32px;
 }
 
+#toggle-password:focus,
+#c-toggle-password:focus{
+    outline: none;
+}
 .eye-icon{
     display: block;
     position: relative;
@@ -653,6 +668,10 @@ footer{
     max-height: 1px;
 }
 
+.login-shape:focus {
+    outline: none;
+}
+
 #c-email-div{
     position: relative;
     max-width: 80%;
@@ -700,6 +719,10 @@ footer{
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
+}
+
+.names-shape:focus {
+    outline: none;
 }
 
 .name-div{
