@@ -45,10 +45,8 @@ def web_login():
         user_password = data.get("password")
         cursor, connection = db_sync()
         password = check_login(email, cursor, connection)
-        print(password)
         if password:
             result = check_password_hash(password, user_password)
-            print(result)
             return jsonify({"success": result})
         else:
             return jsonify({"success": False})
@@ -97,10 +95,6 @@ def booking():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-    
-def hash_pass(user_password):
-    new_pass = werkzeug.security.generate_password_hash(user_password)
-    return new_pass
 
 @app.route("/createAccount", methods = ["POST"])
 def account_details():
