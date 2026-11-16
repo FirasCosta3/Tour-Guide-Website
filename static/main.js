@@ -113,20 +113,18 @@ function sendDetails(email, password) {
 const clearLogin = () => {
     email_submission.value = ""
     password_submission.value = ""
+    error_message.classList.remove("active");
+    email_error.classList.remove("active");
+    empty_error.classList.remove("active");
 }
 
 const clearCreation = () => {
+    create_error.classList.remove("active");
     first_n.value = ""
     last_n.value = ""
     created_e.value = ""
     created_pass.value = ""
 }
-
-function saveAccount(first_name, last_name, user_email, user_password){
-    if (!first_name || !last_name || !user_email || !user_password){
-        console.log("dajsbndsa")
-    }
-}   
 
 function getLogin() {
     const email = email_submission.value
@@ -144,6 +142,8 @@ function getAccountDeets(){
 
 // close the login page if called
 function closeLogin(){
+    clearLogin();
+    clearCreation();
     login_form.classList.remove("active","no-trans", "hide");
     overlay.classList.remove("active");
     create_form.classList.remove("active", "switch")
