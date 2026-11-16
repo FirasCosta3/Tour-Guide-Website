@@ -349,11 +349,19 @@ footer{
 .not-block{
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: center;
-    margin: 20px 0px;
     align-items: center;
-    padding: 40px;
+    border: black solid 2px;
+    border-radius: 8px;
+    padding: 60px;
+}
+
+#not-found-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 200px;
 }
 
 .not-text{

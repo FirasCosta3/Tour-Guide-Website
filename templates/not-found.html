@@ -6,12 +6,13 @@
 <body>
 
 {% block content %}
-
-<div class ="not-block">
-    <p class ="main-title main-font" style ="transform: none; margin-top: 0">OOPS typed the wrong thing?</p>
-    <p class="main-font not-text" style ="font-size: 25px; margin: 0px auto;">We couldn't find that page you're looking for.</p>
-    <p class="main-font not-text" style ="font-size: 25px; margin: 0px auto;">Make sure you type in the correct URL!</p>
-    <a href ="{{ url_for('home') }}" class ="not-found main-font"> Take me home</a>
+<div id="not-found-div">
+    <div class ="not-block">
+        <p class ="main-title main-font" style ="transform: none; margin-top: 0">OOPS typed the wrong thing?</p>
+        <p class="main-font not-text" style ="font-size: 25px; margin: 0px auto;">We couldn't find that page you're looking for.</p>
+        <p class="main-font not-text" style ="font-size: 25px; margin: 0px auto;">Make sure you type in the correct URL!</p>
+        <a href ="{{ url_for('home') }}" class ="not-found main-font"> Take me home</a>
+    </div>
 </div>
 
 {% endblock %}
